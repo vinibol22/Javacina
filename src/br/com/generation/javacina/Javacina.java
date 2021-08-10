@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 
 
-		public class Javacina {
+		public class Javacina extends ComplicacoesVacina {
 
 	
 
 		public static void main(String[] args) {
 		Scanner entrada=new Scanner(System.in);
 		
-		int idade,comorbidade,sexo,complicav=0;
-		String nome,laudo;
+		int idade,comorbidade,sexo,complicav=0,laudo;
+		String nome,simounao="";
 			
 			Calendario calend=new Calendario(); 
 			Comorbidade comor=new Comorbidade();
@@ -45,7 +45,7 @@ import java.util.Scanner;
 					return;
 				}
 				
-				
+				/*
 				System.out.println("Digite seu sexo ");
 				System.out.println("1-Para Masculino ");
 				System.out.println("2-Para Feminino ");
@@ -54,7 +54,7 @@ import java.util.Scanner;
 				while(sexo<1 || sexo>3) {
 					System.out.println("Sexo inválido, digite-o novamente");
 					sexo=entrada.nextInt();
-				}
+				}*/
 			
 				
 				System.out.println("Digite o número caso tenha alguma dessas comorbidades : ");
@@ -78,9 +78,33 @@ import java.util.Scanner;
 				System.out.println("1-Voce toma algum remédio anticoagulante "+"\n"+"2-Voce tem alergia a algum componente da vacina"+"\n"+"3-nehuma das opções ");
 				complicav=entrada.nextInt();
 				
-			complica.setComplicavacia(complicav);
-			laudo=entrada.next();
-			complica.setLaudo(laudo);
+				if(complicav== 3) {
+					calend.setIdade(idade);
+					return;
+				};
+				
+				complica.setComplicavacia(complicav);
+				laudo=entrada.nextInt();
+				while(laudo>2 ||laudo<1) {
+					complica.setComplicavacia(complicav);
+					laudo=entrada.nextInt();
+				}
+				
+				
+				if(laudo==1) {
+					calend.setIdade(idade);
+					return;
+				}
+			
+				if(laudo==2) {
+					System.out.println("Infelizmente voce não pode tomar a vacina");
+				}
+				
+				
+			//complica.setComplicavacia(complicav);
+			//laudo=entrada.next();
+			
+			//complica.setLaudo(laudo);
 		
 	
 		

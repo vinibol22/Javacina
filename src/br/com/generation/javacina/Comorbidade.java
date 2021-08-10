@@ -11,7 +11,7 @@ public class Comorbidade {
 
 
 	public void setComorbidade(int comorbidade) {
-		// TODO Auto-generated method stub
+	
 		this.comorbidade = comorbidade;
 
 		System.out.println("Seu dia de vacinação será de amanhã até o dia 20 deste mes");
